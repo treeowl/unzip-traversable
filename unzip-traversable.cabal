@@ -1,0 +1,43 @@
+cabal-version:      3.0
+name:               unzip-traversable
+version:            0.1.0.0
+synopsis:           Unzip functions for general Traversable containers
+-- description:
+homepage:           https://github.com/treeowl/unzip-traversable
+license:            BSD-2-Clause
+license-file:       LICENSE
+author:             David Feuer
+maintainer:         David.Feuer@gmail.com
+-- copyright:
+category:           Data
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+-- extra-source-files:
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:  Data.Traversable.Unzip
+    other-modules:
+        Data.Traversable.Unzip.EagerPair
+        Data.Traversable.Unzip.LazyPair
+        Data.Traversable.Unzip.Coerce
+    -- other-extensions:
+    build-depends:    base >=4.19.1.0
+                    , bifunctors
+    hs-source-dirs:   src
+    default-language: Haskell2010
+
+test-suite unzip-traversable-test
+    import:           warnings
+    default-language: Haskell2010
+    -- other-modules:
+    -- other-extensions:
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.19.1.0,
+        unzip-traversable
