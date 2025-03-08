@@ -22,13 +22,12 @@ unzipEagerWith :: Traversable t => (a -> (b, c)) -> t a -> (t b, t c)
 unzipEagerWith f = unEagerPair #. traverseBia (EagerPair #. f)
 
 -- | A version of @"Data.List".'Data.List.unzip'@ that works for any
--- `Traversable` type. The container will be unzipped fully before anything is
--- returned.  In particular, this means that if any of the elements in the
--- container is bottom, then the result will be bottom.
+-- `Traversable` type. The unzipping will be lazy in the pairs, and as
+-- lazy in the structure as the underlying `traverse` allows.
 unzipLazy :: Traversable t => t (a, b) -> (t a, t b)
 unzipLazy x = unzipLazyWith id x
 
--- | A version of 'unzipEager' that takes a function to use to produce the
+-- | A version of 'unzipLazu' that takes a function to use to produce the
 -- pairs.
 unzipLazyWith :: Traversable t => (a -> (b, c)) -> t a -> (t b, t c)
 unzipLazyWith f = ensurePair . unLazyPair . traverseBia (LazyPair #. f)
