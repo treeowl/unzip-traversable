@@ -73,6 +73,8 @@ unzipEagerWith f = unEagerPair #. traverseBia (EagerPair #. f)
 -- @unzipLazy ⊥ = ⊥@
 --
 -- @unzipLazy [⊥, ⊥] = ([⊥, ⊥], [⊥, ⊥])@
+--
+-- @unzipLazy ((a, b) : ⊥ : (c, d) : ⊥) = (a : ⊥ : c : ⊥, b : ⊥ : d : ⊥)@
 unzipLazy :: Traversable t => t (a, b) -> (t a, t b)
 unzipLazy x = unzipLazyWith id x
 
