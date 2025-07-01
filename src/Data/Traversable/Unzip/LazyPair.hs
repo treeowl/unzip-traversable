@@ -8,7 +8,7 @@ newtype LazyPair a b = LazyPair { unLazyPair :: (a, b) }
 
 -- Getting the thunks we want when we want them is quite fragile. I found it
 -- helpful to inspect the Core for unzipping Maps; those have enough strictness
--- to make GHC want to do bad things that will leak memory.  It may be possible
+-- to make GHC want to do bad things that will leak memory. It may be possible
 -- to improve it, but this is the most robust approach I've found so far.
 
 instance Functor (LazyPair a) where
