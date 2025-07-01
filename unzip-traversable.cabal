@@ -45,4 +45,5 @@ test-suite unzip-traversable-test
     main-is:          Main.hs
     build-depends:
         base >=4.10.1.0,
+        bifunctors >= 5.5.3,
         unzip-traversable
