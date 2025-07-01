@@ -33,7 +33,7 @@
 -- general `Traversable` instances, essentially because we have no way to know
 -- where to be lazy and where to be strict. It would be possible to write an
 -- \"overly clever\" 'Traversable' version that just so happens to do that for
--- lists, but then it /won't/ behave properly for, say, snoc lists. For more
+-- lists, but then it /wouldn't/ behave properly for, say, snoc lists. For more
 -- intricate instances, its behavior could tend to the bizarre. As a result, we
 -- don't include any such functions here.
 
