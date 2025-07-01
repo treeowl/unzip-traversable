@@ -2,7 +2,12 @@ cabal-version:      3.0
 name:               unzip-traversable
 version:            0.1.0.0
 synopsis:           Unzip functions for general Traversable containers
--- description:
+description:
+  This package provides functions for unzipping arbitrary `Traversable` containers.
+  Each function call walks the container only once, unlike a naive `Traversable`-based
+  implementation. Unlike the classic `Functor` implementation, these functions take
+  care to avoid space leaks that can cause elements to be retained when they are no
+  longer actually accessible. Both eager and lazy versions are included.
 homepage:           https://github.com/treeowl/unzip-traversable
 license:            BSD-2-Clause
 license-file:       LICENSE
