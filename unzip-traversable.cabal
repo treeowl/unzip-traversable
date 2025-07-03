@@ -1,6 +1,6 @@
 cabal-version:      3.0
 name:               unzip-traversable
-version:            0.1
+version:            0.1.1
 synopsis:           Unzip functions for general Traversable containers
 description:
   This package provides functions for unzipping arbitrary `Traversable`
